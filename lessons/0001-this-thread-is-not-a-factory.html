@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>0001 — This thread is not a factory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <style>
+/* Default lesson skin: "one beat" cards. Tokens shared with reference docs. */
+:root {
+  --bg: #ece7dc;
+  --paper: #fffcf6;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --rule: #d6d3d1;
+  --accent: #9a3412;
+  --ok: #166534;
+  --bad: #991b1b;
+  --win: #e7f3ea;
+  --flag: #f8e8e0;
+  --soft: #f7f3ea;
+  font-family: Newsreader, "Iowan Old Style", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+body { line-height: 1.5; font-size: 20px; padding-bottom: 2rem; }
+
+.page { max-width: 720px; margin: 0 auto; padding: 1.2rem 1rem 2rem; }
+
+.kicker {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 0.35rem;
+}
+h1 {
+  font-family: Fraunces, Newsreader, Georgia, serif;
+  font-weight: 600; font-size: 2.1rem; line-height: 1.15;
+  margin: 0.25rem 0 0.4rem;
+}
+.lede, .meta {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem; color: var(--muted); margin: 0 0 0.45rem;
+}
+h2 { font-family: Fraunces, Newsreader, Georgia, serif; font-size: 1.55rem; margin: 0 0 0.8rem; }
+h3 { font-size: 1.1rem; margin: 0.1rem 0 0.4rem; }
+p { margin: 0 0 0.8rem; }
+ul { margin: 0 0 0.8rem; padding-left: 1.2rem; }
+li { margin: 0 0 0.25rem; }
+a { color: var(--accent); }
+code, .mono {
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 0.86em;
+}
+
+blockquote {
+  margin: 0.8rem 0 1rem; padding: 0 0 0 0.9rem;
+  border-left: 3px solid var(--accent); font-style: italic;
+}
+cite {
+  display: block; margin-top: 0.3rem; font-style: normal;
+  font-size: 0.85rem; color: var(--muted);
+  font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
+}
+
+.callout { background: var(--soft); border-radius: 12px; padding: 0.85rem 1rem; margin: 0.8rem 0; }
+.callout.redflag { background: var(--flag); }
+.callout.win { background: var(--win); }
+.formula {
+  font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  font-size: 0.95rem; background: #f4efe6; padding: 0.8rem 1rem;
+  border-radius: 10px; margin: 0.8rem 0 1rem;
+}
+
+.deck section.beat {
+  display: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem 1.6rem;
+  min-height: 52vh;
+  box-shadow: 0 12px 40px rgba(28, 25, 23, 0.06);
+}
+.deck section.beat.active { display: block; }
+
+.card-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1rem;
+  font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
+}
+.card-nav button {
+  border: 1px solid #a8a29e; background: var(--paper); color: var(--ink);
+  border-radius: 999px; padding: 0.45rem 1rem;
+  font: 600 14px/1 "IBM Plex Sans", sans-serif; cursor: pointer;
+}
+.card-nav button:disabled { opacity: 0.4; cursor: default; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); display: block; }
+.dots i.on { background: var(--accent); }
+.progress-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 0.45rem;
+}
+
+.quiz { margin: 1rem 0 1.2rem; }
+.quiz .q { font-weight: 600; margin-bottom: 0.45rem; }
+.quiz button {
+  display: block; width: 100%; text-align: left;
+  margin: 0.35rem 0; padding: 0.65rem 0.8rem;
+  border: 1px solid var(--rule); background: #fff; color: var(--ink);
+  border-radius: 12px; font: 16px/1.3 "IBM Plex Sans", sans-serif; cursor: pointer;
+}
+.quiz button[data-state="right"] { background: #ecfdf3; border-color: var(--ok); }
+.quiz button[data-state="wrong"] { background: #fef2f2; border-color: var(--bad); }
+.fb { font: 14px/1.4 "IBM Plex Sans", sans-serif; color: var(--muted); min-height: 1.2em; }
+
+/* Reference / single-sheet pages */
+body.doc { font-size: 18px; }
+body.doc .page { padding-top: 2rem; }
+body.doc .sheet {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 18px;
+  padding: 1.6rem 1.5rem 2rem;
+}
+body.doc h2 { margin-top: 1.4rem; }
+
+@media print {
+  body { background: white; }
+  .deck section.beat { display: block; box-shadow: none; break-inside: avoid; margin-bottom: 1rem; }
+  .card-nav, .progress-label { display: none; }
+}
+
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <p class="kicker">Lesson 0001 · Arc 0</p>
+      <h1>This thread is not a factory</h1>
+      <p class="lede">A factory is a system that starts agent sessions. You typing here is the opposite of that.</p>
+      <p class="meta">11 min watch + 8 min cards + grill · Matt Pocock — YouTube + AI Coding Dictionary</p>
+      <p class="meta">Watch: <a href="https://www.youtube.com/watch?v=E5-QK3CDVQM">https://www.youtube.com/watch?v=E5-QK3CDVQM</a> · Read: <a href="https://www.aihero.dev/ai-coding-dictionary/software-factory">https://www.aihero.dev/ai-coding-dictionary/software-factory</a></p>
+      <p class="meta">Activity: Live grill — classify four setups. If they land, you write software factory into GLOSSARY.md in your own words (no paste).</p>
+    </header>
+    <div class="deck">
+      <section class="beat active" id="watch-first"><h2 id="watch-first">Watch first</h2><p>Watch <a href="https://www.youtube.com/watch?v=E5-QK3CDVQM">I Open-Sourced My Own AFK Software Factory</a> (~11 min). Then read <a href="https://www.aihero.dev/ai-coding-dictionary/software-factory">Software factory</a>. Cards compress those. They do not replace them.</p><p>Do not skip the video to “save time.” Matt showing a factory is the lesson.</p><p>Also open the dictionary entry. One sentence is the whole idea:</p><blockquote><p>A system of work where agent sessions are started by triggers — an issue being created, a schedule, a CI failure, another session finishing — rather than by a human</p><cite><a href="https://www.aihero.dev/ai-coding-dictionary/software-factory">Software factory</a></cite></blockquote><p>This Desktop thread is a human starting a session. Teacher, not factory.</p></section>
+      <section class="beat" id="triggers-not-humans"><h2 id="triggers-not-humans">Triggers, not humans</h2><p>Without a factory, every session starts because someone started it. Even fully <a href="https://www.aihero.dev/ai-coding-dictionary/afk">AFK</a> work still waited on a person to open the session, point it at a ticket, and set it going.</p><p>A factory takes the human out of <strong>starting</strong> sessions. Not necessarily out of anything else.</p><div class="callout"><h3>Still a factory</h3><p>One cron job that runs one kind of session and opens one reviewable PR. Narrow on purpose. Review the PRs; then decide whether to widen.</p></div><p>That is the bar for <em>our</em> lab later. Not “Claude in GitHub Actions” as a costume. A trigger, a session, a draft PR you read.</p></section>
+      <section class="beat" id="afk-is-not-a-factory"><h2 id="afk-is-not-a-factory">AFK is not a factory</h2><p>You can walk away from this chat. That is AFK. It is still not a factory: <strong>you</strong> started the session.</p><div class="callout redflag"><h3>The cargo-cult</h3><p>Calling Jorge-in-this-thread “the factory” because code got written while you made coffee. Matt’s cut is who <em>started</em> the work, not whether you watched it.</p></div><p><a href="https://www.aihero.dev/ai-coding-dictionary/human-in-the-loop">HITL</a> is pairing during the session. Teaching lives here. Grilling only works with you answering. Factory comes last in this workspace, after brakes.</p></section>
+      <section class="beat" id="grey-box-not-dark"><h2 id="grey-box-not-dark">Grey box, not dark</h2><p>Humans can sit anywhere: writing the issue, approving a plan, <a href="https://www.aihero.dev/ai-coding-dictionary/human-review">human review</a> before merge.</p><p>A <a href="https://www.aihero.dev/ai-coding-dictionary/dark-factory">dark factory</a> is a factory whose output nobody reads. Agents merge what passes CI. When it breaks, you debug code no one on the team has seen.</p><div class="callout win"><p><strong>Today’s win.</strong> Point at a setup and say: factory, AFK-but-not-factory, HITL teaching, or dark factory — and <em>why</em>.</p></div><p>This repo: grey box. Draft PRs. You read the diff. No auto-merge.</p></section>
+      <section class="beat" id="quiz"><h2 id="quiz">Quiz</h2><div class="quiz" data-quiz data-answer="a" data-ok="Yes. Factory = who starts the session. AFK is walking away. Dark factory is a factory plus no human review." data-no="AFK still needed a human to start it. Auto-merge without review is a dark factory — a factory with the lights off, not the definition of factory."><p class="q">What makes a system a software factory?</p><button type="button" data-choice="a">A trigger starts the session; a person does not have to</button><button type="button" data-choice="b">You start a session, then leave the agent AFK</button><button type="button" data-choice="c">Agents merge green PRs and nobody reads them</button><p class="fb"></p></div></section>
+      <section class="beat" id="activity"><h2 id="activity">Activity</h2><p>Reply <strong>ready</strong> when the video + dictionary + cards are done.</p><p>I will grill four setups (this thread, a labelled issue that opens a draft PR, auto-merge on green, you kicking off an AFK run by hand). Wrong answers get pushed, not padded.</p><p>If the term is yours after that, <strong>you</strong> write <code>software factory</code> into <a href="../GLOSSARY.md">GLOSSARY.md</a> in your own words. I do not paste Matt.</p><p>Sheet: <a href="../reference/factory-vs-hitl.html">factory vs HITL vs dark</a>. Ask if a card is thin or a case sits on a line.</p></section>
+    </div>
+    <nav class="card-nav" aria-label="Lesson cards">
+      <button type="button" id="prev-card">← Back</button>
+      <span class="dots" id="dots"></span>
+      <button type="button" id="next-card">Next →</button>
+    </nav>
+    <p class="progress-label" id="card-label"></p>
+    <p class="meta" style="margin-top:1.2rem">Next: 0002 — Model vs harness · Source: <span class="mono">0001-this-thread-is-not-a-factory.md</span> · Ask me if anything is unclear.</p>
+  </article>
+  <script>
+function mountQuizzes(root = document) {
+  root.querySelectorAll("[data-quiz]").forEach((box) => {
+    const answer = box.dataset.answer;
+    const fb = box.querySelector(".fb");
+    box.querySelectorAll("button[data-choice]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ok = btn.dataset.choice === answer;
+        box.querySelectorAll("button[data-choice]").forEach((b) => {
+          b.disabled = true;
+          b.dataset.state =
+            b.dataset.choice === answer ? "right" : b === btn && !ok ? "wrong" : "";
+        });
+        if (fb) fb.textContent = ok ? box.dataset.ok || "Yes." : box.dataset.no || "Not that one.";
+      });
+    });
+  });
+}
+
+function mountCards(root = document) {
+  const secs = [...root.querySelectorAll(".deck section.beat")];
+  if (!secs.length) return;
+  const dots = root.querySelector("#dots");
+  const prev = root.querySelector("#prev-card");
+  const next = root.querySelector("#next-card");
+  const label = root.querySelector("#card-label");
+  let i = 0;
+
+  const show = () => {
+    secs.forEach((s, n) => s.classList.toggle("active", n === i));
+    if (dots) {
+      dots.querySelectorAll("i").forEach((d, n) => d.classList.toggle("on", n === i));
+    }
+    if (prev) prev.disabled = i === 0;
+    if (next) next.disabled = i === secs.length - 1;
+    if (label) label.textContent = `${i + 1} / ${secs.length}`;
+  };
+
+  if (dots) {
+    dots.innerHTML = secs.map((_, n) => `<i class="${n === 0 ? "on" : ""}"></i>`).join("");
+    dots.querySelectorAll("i").forEach((d, n) => {
+      d.style.cursor = "pointer";
+      d.addEventListener("click", () => {
+        i = n;
+        show();
+      });
+    });
+  }
+  if (prev) prev.addEventListener("click", () => { i = Math.max(0, i - 1); show(); });
+  if (next) next.addEventListener("click", () => { i = Math.min(secs.length - 1, i + 1); show(); });
+
+  document.addEventListener("keydown", (e) => {
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (e.key === "ArrowRight" || e.key === "n") { i = Math.min(secs.length - 1, i + 1); show(); }
+    if (e.key === "ArrowLeft" || e.key === "p") { i = Math.max(0, i - 1); show(); }
+  });
+  show();
+}
+
+function boot() {
+  mountQuizzes();
+  mountCards();
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
+
+  </script>
+</body>
+</html>

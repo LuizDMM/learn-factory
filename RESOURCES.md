@@ -14,6 +14,8 @@ Prefer these over a Jorge recap when a video exists.
   Entropy + `improve-codebase-architecture`. Use for: **arc 4** after the first playground spike. Activity: run that skill on `playground/` and keep or refuse one deepening.
 - [Software Fundamentals Matter More Than Ever](https://www.youtube.com/watch?v=v4F1gFy-hqg) — Matt talk
   Ubiquitous language, vertical slices, TDD, deep modules. Use for: **arc 1–5** overview, not as the only source for one idea.
+- [I Open-Sourced My Own AFK Software Factory](https://www.youtube.com/watch?v=E5-QK3CDVQM) — Matt, YouTube (~11 min)
+  Factory in motion: triggers start sessions, review the PR later. Use for: **arc 0** (what a factory is) and **arc 6** (how he wired one). Activity: classify this Desktop thread vs a labelled-issue trigger. Pair with the [software factory](https://www.aihero.dev/ai-coding-dictionary/software-factory) entry — video first, dictionary for the cut.
 - [Full Walkthrough: Workflow for AI Coding](https://www.youtube.com/watch?v=-QFHIoCo-Ko) — Matt
   Grill → spec → tickets → AFK. Use for: **arc 0 / 6** so he sees the whole loop before we build a factory. Activity: map the walkthrough onto *our* playground (what would a ticket look like), not onto Visian.
 

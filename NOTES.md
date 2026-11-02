@@ -6,7 +6,8 @@
 - English: flag useful mistakes, don't turn every lesson into grammar class.
 - Cadence: evenings / spare blocks. **One lesson + one playground change.** Stop. Do not double-up if a day slips.
 - `learn-craft` (Ousterhout, lunch) is **paused** until he unpauses it. Do not steal that slot and do not start learn-craft 0003.
-- Skin: cards, same idea as learn-craft. Author `lessons/NNNN-slug.md`, render to HTML when the renderer is copied here. Do not hand-edit HTML as the source of truth.
+- **Skin:** cards, same idea as learn-craft. Author `lessons/NNNN-slug.md`, then `python3 scripts/render_lesson.py --all`. Do not hand-edit HTML as the source of truth.
+- **Hermes file preview does not run `<script>`.** Open lesson HTML in a real browser on the laptop (`xdg-open`). Do not invent a no-JS card skin to paper over that.
 - Quizzes: clarity over tricks. A quiz is **not** the activity.
 - Examples: this playground (courses / lessons / progress / user switcher). Never paste Visian or SpaceXAI source.
 - **Do not get locked in text.** Cards without Matt's own video/article, or without a thing he *does*, are a failed lesson. Compress, don't replace.

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Factory vs HITL vs dark factory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/lesson.css" />
+  <style>
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-family: "IBM Plex Sans", ui-sans-serif, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  </style>
+</head>
+<body class="doc">
+  <article class="page">
+    <div class="sheet">
+      <p class="kicker">Reference · Arc 0</p>
+      <h1>Factory vs HITL vs dark</h1>
+      <p class="lede">Who starts the session, and who reads the result. Print this; do not dump the whole dictionary into GLOSSARY.</p>
+      <p class="meta">Sources: <a href="https://www.aihero.dev/ai-coding-dictionary/software-factory">software factory</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/dark-factory">dark factory</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/human-in-the-loop">HITL</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/afk">AFK</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/human-review">human review</a></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Who starts the session?</th>
+            <th>Are you present during it?</th>
+            <th>Does a human read the diff?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HITL teaching</strong><br><span class="meta">this Desktop thread</span></td>
+            <td>You</td>
+            <td>Yes — grilling, redirecting</td>
+            <td>Yes, if there is a diff (often there isn’t yet)</td>
+          </tr>
+          <tr>
+            <td><strong>AFK, not a factory</strong></td>
+            <td>You (then you leave)</td>
+            <td>No</td>
+            <td>Should — review the PR after</td>
+          </tr>
+          <tr>
+            <td><strong>Software factory</strong><br><span class="meta">grey box</span></td>
+            <td>A trigger (label, cron, CI, another session)</td>
+            <td>No (by design)</td>
+            <td>Yes — draft PR, you read it</td>
+          </tr>
+          <tr>
+            <td><strong>Dark factory</strong></td>
+            <td>A trigger</td>
+            <td>No</td>
+            <td>No — merge on green; nobody read it</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>One-liners (Matt)</h2>
+      <blockquote>
+        <p>A factory takes the human out of starting sessions, and not necessarily out of anything else.</p>
+        <cite>AI Coding Dictionary · software factory</cite>
+      </blockquote>
+      <blockquote>
+        <p>If agent sessions run AFK and a human reviews their PRs, that is a software factory. It is not a dark factory.</p>
+        <cite>AI Coding Dictionary · dark factory (avoid)</cite>
+      </blockquote>
+
+      <p>Lesson: <a href="../lessons/0001-this-thread-is-not-a-factory.html">0001 — This thread is not a factory</a>. Term enters <span class="mono">GLOSSARY.md</span> only after Luiz uses it correctly.</p>
+    </div>
+  </article>
+</body>
+</html>
