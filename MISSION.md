@@ -21,6 +21,8 @@ The cohort is pedagogy, a licensed sandbox, and office hours. It is not required
 - **Grey box, not dark factory.** No auto-merge. Luiz reviews.
 - **Off-limits as the lab:** Visian prod, SpaceXAI. This repo never contains employer/client source.
 - **This chat is the teacher**, not the factory. Babysitting tickets here is out of scope.
+- **Matt's public content is the source.** Every lesson points at a video and/or article of his (dictionary, AI Hero post, YouTube, skill README). Our cards compress it; they do not replace it. Paid cohort tapes stay out of scope — use the nearest public artifact and say so.
+- **Activity is mandatory.** Quizzes-only or "Jorge explains" is not a lesson. He does something in `playground/` or runs a real skill (`/grill-with-docs`, `/tdd`, a failing check).
 
 ## Out of scope
 
