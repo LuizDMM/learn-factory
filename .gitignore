@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+__pycache__/
+.venv/
+.cache/
+playground/.react-router/
+playground/playwright-report/
+playground/test-results/
