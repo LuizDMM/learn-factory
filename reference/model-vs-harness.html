@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Model vs harness vs agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/lesson.css" />
+  <style>
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  </style>
+</head>
+<body class="doc">
+  <article class="page">
+    <div class="sheet">
+      <p class="kicker">Reference · Arc 0</p>
+      <h1>Model vs harness vs agent</h1>
+      <p class="lede">What predicts tokens, what wraps it, and what you talk to. Print this; do not dump the whole dictionary into GLOSSARY.</p>
+      <p class="meta">Sources: <a href="https://www.aihero.dev/ai-coding-dictionary/model">model</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/harness">harness</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/agent">agent</a> · <a href="https://www.youtube.com/watch?v=oLx4yCbeklQ">Matt — system-tool bloat</a></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>What it is</th>
+            <th>Can it read a file?</th>
+            <th>Here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Model</strong></td>
+            <td>Parameters. Next-token prediction. Stateless.</td>
+            <td>No</td>
+            <td>grok-4.6 (this session)</td>
+          </tr>
+          <tr>
+            <td><strong>Harness</strong></td>
+            <td>Tools, system prompt, context management, permissions, hooks</td>
+            <td>Yes — it executes tools the model only <em>asks</em> for</td>
+            <td>Hermes Agent + skills + <span class="mono">AGENTS.md</span></td>
+          </tr>
+          <tr>
+            <td><strong>Agent</strong></td>
+            <td>Model + harness, addressed as one actor</td>
+            <td>Via the harness</td>
+            <td>Jorge — not a third machine</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>One-liners (Matt)</h2>
+      <blockquote>
+        <p>On its own a model can't do anything agentic; it has to be harnessed.</p>
+        <cite>AI Coding Dictionary · model</cite>
+      </blockquote>
+      <blockquote>
+        <p>Claude.ai and Claude Code run on the same model but behave differently because their harnesses differ.</p>
+        <cite>AI Coding Dictionary · harness</cite>
+      </blockquote>
+      <blockquote>
+        <p>When you say the agent did something, you mean the model-plus-harness did it, but you're addressing the combination as a single actor.</p>
+        <cite>AI Coding Dictionary · agent</cite>
+      </blockquote>
+
+      <p>Lesson: <a href="../lessons/0002-model-vs-harness.html">0002 — Model vs harness</a>. Term enters <span class="mono">GLOSSARY.md</span> only after Luiz uses it correctly.</p>
+    </div>
+  </article>
+</body>
+</html>

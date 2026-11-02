@@ -10,4 +10,4 @@ Every lesson must satisfy the **lesson contract** in [`NOTES.md`](../NOTES.md):
 | Cards | compression + retrieval, not a blog |
 | Activity | playground change or live skill run that can fail |
 
-A lesson that is only text is not a lesson. Do not start `0002` until `0001` has a learning record of a **done activity**.
+A lesson that is only text is not a lesson. Do not start `000N+1` until `000N` has a learning record of a **done activity**.

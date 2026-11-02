@@ -16,6 +16,8 @@ Prefer these over a Jorge recap when a video exists.
   Ubiquitous language, vertical slices, TDD, deep modules. Use for: **arc 1–5** overview, not as the only source for one idea.
 - [I Open-Sourced My Own AFK Software Factory](https://www.youtube.com/watch?v=E5-QK3CDVQM) — Matt, YouTube (~11 min)
   Factory in motion: triggers start sessions, review the PR later. Use for: **arc 0** (what a factory is) and **arc 6** (how he wired one). Activity: classify this Desktop thread vs a labelled-issue trigger. Pair with the [software factory](https://www.aihero.dev/ai-coding-dictionary/software-factory) entry — video first, dictionary for the cut.
+- [Claude Code's system tools are SO BLOATED](https://www.youtube.com/watch?v=oLx4yCbeklQ) — Matt, YouTube (~2 min)
+  Tools and system prompt are harness payload, billed every turn. Use for: **arc 0** (model vs harness). Pair with [model](https://www.aihero.dev/ai-coding-dictionary/model) + [harness](https://www.aihero.dev/ai-coding-dictionary/harness). Activity: classify this thread (Grok vs Hermes vs Jorge). Not a “trim Claude” lab.
 - [Full Walkthrough: Workflow for AI Coding](https://www.youtube.com/watch?v=-QFHIoCo-Ko) — Matt
   Grill → spec → tickets → AFK. Use for: **arc 0 / 6** so he sees the whole loop before we build a factory. Activity: map the walkthrough onto *our* playground (what would a ticket look like), not onto Visian.
 
@@ -25,6 +27,10 @@ Paid cohort videos (~59) are **not** in this workspace. If a lesson would have b
 
 - [AI Coding Dictionary](https://www.aihero.dev/ai-coding-dictionary) — 71 terms
   Crash-course vocabulary live here. Use for: **arc 0**. Start with [model](https://www.aihero.dev/ai-coding-dictionary/model), then harness / session / AX vs DX. Activity: Luiz uses the term correctly in a grill; only then it enters `GLOSSARY.md`.
+- [Model](https://www.aihero.dev/ai-coding-dictionary/model) · [Harness](https://www.aihero.dev/ai-coding-dictionary/harness) · [Agent](https://www.aihero.dev/ai-coding-dictionary/agent)
+  Parameters vs wrapper vs the thing you talk to. Use for: **arc 0** after the factory cut. Pair with the [system-tool bloat short](https://www.youtube.com/watch?v=oLx4yCbeklQ).
+- [How To Kill The Bloat In Claude Code's System Prompt](https://www.aihero.dev/how-to-kill-the-bloat-in-claude-codes-system-prompt) — Matt
+  Same cut as the short, with the settings. Use later if we ever tune a Claude harness. Not the 0002 activity.
 - [Software factory (dictionary)](https://www.aihero.dev/ai-coding-dictionary/software-factory)
   Triggers start sessions. Use for: **arc 6** definition, **arc 0** so he doesn't call this chat a factory. Pair with [dark factory](https://www.aihero.dev/ai-coding-dictionary/dark-factory).
 - [My 7 Phases of AI Development](https://www.aihero.dev/my-7-phases-of-ai-development)
