@@ -23,3 +23,11 @@ A factory whose output a human still **reads** (draft PR, you review). Humans ca
 ### Dark factory
 
 A factory where **nobody reads the diff**. Green CI merges. Humans may still file issues. We are not building this. (Not “black box” — that name hides the cut.)
+
+### Model
+
+The frozen parameters used to generate tokens. grok-4.6 in this thread. Not the provider’s servers, not Hermes.
+
+### Harness
+
+The code that uses the model and gives it capabilities: tool calling, the system prompt, MCPs, and so on. Hermes in this thread. `AGENTS.md` is instructions to the harness — not to the agent, and not to the model.
