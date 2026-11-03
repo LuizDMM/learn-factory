@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Session vs turn vs context window</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/lesson.css" />
+  <style>
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  </style>
+</head>
+<body class="doc">
+  <article class="page">
+    <div class="sheet">
+      <p class="kicker">Reference · Arc 0</p>
+      <h1>Session vs turn vs window</h1>
+      <p class="lede">The box, the stuff filling it, and the units of work. Print this; do not dump the whole dictionary into GLOSSARY.</p>
+      <p class="meta">Sources: <a href="https://www.aihero.dev/ai-coding-dictionary/session">session</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/turn">turn</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/context-window">context window</a> · <a href="https://www.aihero.dev/ai-coding-dictionary/model-provider-request">model provider request</a> · <a href="https://www.youtube.com/watch?v=-uW5-TaVXu4">Matt — context windows</a></p>
+
+      <p>Hierarchy: <strong>session &gt; turn &gt; model provider request</strong>. The context window is the finite box those requests fill.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>What it is</th>
+            <th>Here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Context window</strong></td>
+            <td>Everything the model sees on one provider request. Finite. Not memory.</td>
+            <td>System prompt + this chat + tool results, re-sent each call</td>
+          </tr>
+          <tr>
+            <td><strong>Session</strong></td>
+            <td>One bounded run. Starts empty, fills the box, ends on close / clear / compact.</td>
+            <td>This Desktop thread until <span class="mono">/new</span> or you close it</td>
+          </tr>
+          <tr>
+            <td><strong>Turn</strong></td>
+            <td>Your message plus everything the agent does until it yields.</td>
+            <td>You type; Jorge tools and answers; you can speak again</td>
+          </tr>
+          <tr>
+            <td><strong>Provider request</strong></td>
+            <td>One round-trip: harness sends context, model returns text or a tool call.</td>
+            <td>Each grok-4.6 call inside a turn</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>One-liners (Matt)</h2>
+      <blockquote>
+        <p>If the context window is the box, the session is the stuff slowly filling it up.</p>
+        <cite>AI Coding Dictionary · session</cite>
+      </blockquote>
+      <blockquote>
+        <p>The model is stateless, so everything it appears to remember is in the message history, re-sent with every model provider request.</p>
+        <cite>AI Coding Dictionary · session</cite>
+      </blockquote>
+      <blockquote>
+        <p>A turn can be a one-sentence answer or twenty minutes of reading, editing, and running tests.</p>
+        <cite>AI Coding Dictionary · turn</cite>
+      </blockquote>
+
+      <p>Lesson: <a href="../lessons/0003-session-context-turn.html">0003 — Session, context, turn</a>. Term enters <span class="mono">GLOSSARY.md</span> only after Luiz uses it correctly.</p>
+    </div>
+  </article>
+</body>
+</html>

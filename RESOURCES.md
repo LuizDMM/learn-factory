@@ -18,6 +18,10 @@ Prefer these over a Jorge recap when a video exists.
   Factory in motion: triggers start sessions, review the PR later. Use for: **arc 0** (what a factory is) and **arc 6** (how he wired one). Activity: classify this Desktop thread vs a labelled-issue trigger. Pair with the [software factory](https://www.aihero.dev/ai-coding-dictionary/software-factory) entry — video first, dictionary for the cut.
 - [Claude Code's system tools are SO BLOATED](https://www.youtube.com/watch?v=oLx4yCbeklQ) — Matt, YouTube (~2 min)
   Tools and system prompt are harness payload, billed every turn. Use for: **arc 0** (model vs harness). Pair with [model](https://www.aihero.dev/ai-coding-dictionary/model) + [harness](https://www.aihero.dev/ai-coding-dictionary/harness). Activity: classify this thread (Grok vs Hermes vs Jorge). Not a “trim Claude” lab.
+- [Most devs don’t understand how context windows work](https://www.youtube.com/watch?v=-uW5-TaVXu4) — Matt, YouTube (~9 min)
+  The box: input+output tokens, hard limit, lost-in-the-middle, `/clear` vs `/compact`. Use for: **arc 0** (session / context / turn). Pair with [session](https://www.aihero.dev/ai-coding-dictionary/session) + [turn](https://www.aihero.dev/ai-coding-dictionary/turn) + [context window](https://www.aihero.dev/ai-coding-dictionary/context-window). Activity: classify session vs turn vs window vs provider request.
+- [What is the dumb zone?](https://www.youtube.com/watch?v=sOd7svdu_1I) — Matt, YouTube (~2 min)
+  Attention degradation; usable zone is smaller than the advertised window. Use for: **arc 0** after session/turn (smart zone). Not the 0003 activity.
 - [Full Walkthrough: Workflow for AI Coding](https://www.youtube.com/watch?v=-QFHIoCo-Ko) — Matt
   Grill → spec → tickets → AFK. Use for: **arc 0 / 6** so he sees the whole loop before we build a factory. Activity: map the walkthrough onto *our* playground (what would a ticket look like), not onto Visian.
 
@@ -29,6 +33,10 @@ Paid cohort videos (~59) are **not** in this workspace. If a lesson would have b
   Crash-course vocabulary live here. Use for: **arc 0**. Start with [model](https://www.aihero.dev/ai-coding-dictionary/model), then harness / session / AX vs DX. Activity: Luiz uses the term correctly in a grill; only then it enters `GLOSSARY.md`.
 - [Model](https://www.aihero.dev/ai-coding-dictionary/model) · [Harness](https://www.aihero.dev/ai-coding-dictionary/harness) · [Agent](https://www.aihero.dev/ai-coding-dictionary/agent)
   Parameters vs wrapper vs the thing you talk to. Use for: **arc 0** after the factory cut. Pair with the [system-tool bloat short](https://www.youtube.com/watch?v=oLx4yCbeklQ).
+- [Session](https://www.aihero.dev/ai-coding-dictionary/session) · [Turn](https://www.aihero.dev/ai-coding-dictionary/turn) · [Context window](https://www.aihero.dev/ai-coding-dictionary/context-window) · [Model provider request](https://www.aihero.dev/ai-coding-dictionary/model-provider-request)
+  Box vs stuff vs one yield vs one round-trip. Use for: **arc 0** after model/harness. Pair with the [context-window video](https://www.youtube.com/watch?v=-uW5-TaVXu4). Activity: Luiz classifies four setups; only then the terms enter `GLOSSARY.md`.
+- [What Is The Context Window?](https://www.aihero.dev/what-is-the-context-window) — Matt
+  Same cut as the video, with diagrams. Optional read if the YouTube is enough.
 - [How To Kill The Bloat In Claude Code's System Prompt](https://www.aihero.dev/how-to-kill-the-bloat-in-claude-codes-system-prompt) — Matt
   Same cut as the short, with the settings. Use later if we ever tune a Claude harness. Not the 0002 activity.
 - [Software factory (dictionary)](https://www.aihero.dev/ai-coding-dictionary/software-factory)
