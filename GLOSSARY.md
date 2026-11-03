@@ -31,3 +31,15 @@ The frozen parameters used to generate tokens. grok-4.6 in this thread. Not the 
 ### Harness
 
 The code that uses the model and gives it capabilities: tool calling, the system prompt, MCPs, and so on. Hermes in this thread. `AGENTS.md` is instructions to the harness — not to the agent, and not to the model.
+
+### Session
+
+One instance of an agent conversation, start to end. This Desktop thread until `/new` or you close it.
+
+### Turn
+
+Everything that happens between the user's message and the model's response at the end of the turn — including tool calls — until the agent yields back. Not each API hit.
+
+### Context window
+
+What the model sees on one provider request: from the system prompt through to that request. Not the session, not memory, not the weights. The session is the stuff that fills this box.
